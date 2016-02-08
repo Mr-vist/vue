@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app/home/css/vue.css">
+    <title>vue</title>
+</head>
+<body class="body">
+
+<div id="app">
+    <div>{{message +' '+ sum |uppercase}}</div>
+    <input type="text" v-model="message">
+</div>
+<div>
+    <label>{{selected}}</label>
+    <select v-model="selected">
+        <option selected>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+</div>
+<table v-cloak>
+    <tr v-for="book in books" track-by="$index">
+        <td @click="showDescription(book.name)" style="width:200px">{{book.id}}</td>
+        <td @click="addBook(book.name)">{{book.name}}</td>
+    </tr>
+</table>
+<script src="app/bower_components/vue/vue.js"></script>
+<script src="app/home/js/dist/main.js"></script>
+</body>
+</html>
