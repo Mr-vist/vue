@@ -36,8 +36,12 @@
                 return result;
             }
         },
-        ready:function(){
-
+        ready: function () {
+            this.$http.get('app/book.json', function (data) {
+                this.$set('books', data);
+            }).catch(function (data, status, request) {
+                console.log('fail' + status + ',' + request);
+            })
         }
     })
 })();
